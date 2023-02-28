@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Customers</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light" style="margin-bottom:  #e9ecef;">
+            <a class="navbar-brand" href="Default.html"="#">Home</a>
+            <a class="nav-item nav-link" href="sale.html">Sales</a>
+            <a class="nav-item nav-link" href="customer.html">Customers</a>
+            <a class="nav-item nav-link" href="order.html">Orders</a>
+            <a class="nav-item nav-link" href="inventory.html">Inventory</a>
+            <a class="nav-item nav-link" href="supplier.html">Suppliers</a>
+        </nav>
+    </header>
+
+    <br />
+    <div ID="lblStatus" class="alert alert-info" role="alert"">Ready . . .</div>
+    <div class=" navbar navbar-light input-group" style="background-color:  #e9ecef;">
+        <input type="text" id="txtSearch" class="form-control" placeholder="Search by Name, Phone or E-mail"
+            aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button id="btnSearch" class="btn btn-outline-primary" type="button">Search</button>
+            <button id="btnClrSrch" class="btn btn-outline-secondary" type="button">Clear</button>
+        </div>
+    </div>
+    <br />
+
+    <div class="container">
+        <table class="form-group col-md-10 offset-md-1 table-hover table-striped">
+            <thead id="myTableHead">
+                <tr class="text-center">
+                    <th>Full Name</th>
+                    <th>Phone</th>
+                    <th>E-mail</th>
+                    <th><button id="btnNew" class="btn btn-success" type="button">Add Customer</button></th>
+                </tr>
+            </thead>
+            <tbody id="myTable"></tbody>
+        </table>
+        <br />
+        <div>
+            <ul id="myPager" class="pagination justify-content-center"></ul>
+        </div>
+        <br />
+        <div class="collapse" id="collapseDetails">
+            <div class="card card-body col-md-10 offset-md-1" style="background-color:  #e9ecef;">
+                <h4>Details</h4>
+                <br />
+                <form id="frmDetails" class="form" onsubmit="formSubmit(); return false">
+                    <fieldset id="fieldsetDetails">
+                        <div class="row">
+                            <div class="col-6">
+                                <dl class="row">
+                                    <dt class="col-md-4">
+                                        <label for="custFName">First Name:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="text" id="custFName" name="custFName" required>
+                                    </dd>
+                                    <dt class="col-md-4">
+                                        <label for="custPhone">Phone:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="tel" id="custPhone" name="custPhone" placeholder="10-digits"
+                                        pattern="[0-9]{10}" title="Enter a 10 digits phone number" required>
+                                    </dd>
+                                    <dt class="col-md-4">
+                                        <label for="custStreet">Street:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="text" id="custStreet" name="custStreet" required>
+                                    </dd>
+                                    <dt class="col-md-4">
+                                        <label for="custProv">Province:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="text" id="custProv" name="custProv" required>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-6">
+                                <dl class="row">
+                                    <dt class="col-md-4">
+                                        <label for="custLName">Last Name:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="text" id="custLName" name="custLName" required>
+                                    </dd>
+                                    <dt class="col-md-4">
+                                        <label for="custEmail">E-mail:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="text" id="custEmail" name="custEmail" placeholder="Eg. user@customer.ca"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        title="Enter a valid e-mail address" required>
+                                    </dd>
+                                    <dt class="col-md-4">
+                                        <label for="custCity">City:</label>
+                                    </dt>
+                                    <dd class="col-md-8">
+                                        <input type="text" id="custCity" name="custCity" required>
+                                    </dd>
+                                    <dt class="col-md-3">
+                                    </dt>
+                                    <dd class="col-md-6">
+                                        <div class="d-flex justify-content-around">
+                                            <button type="submit" id="btnCreate" class="btn btn-success">Create</button>
+                                            <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+                                            <button type="button" id="btnCancelEdit" class="btn btn-dark">Cancel</button>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <script src="scripts/app_script.js"></script>
+</body>
+
+</html>
